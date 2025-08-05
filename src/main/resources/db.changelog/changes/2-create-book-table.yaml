@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2-create-book-table
+      author: you
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)

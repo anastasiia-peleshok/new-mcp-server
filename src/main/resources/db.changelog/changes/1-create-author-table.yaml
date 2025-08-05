@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-author-table
+      author: you
+      changes:
+        - createTable:
+            tableName: author
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  name: last_name
+                  type: VARCHAR(255)
