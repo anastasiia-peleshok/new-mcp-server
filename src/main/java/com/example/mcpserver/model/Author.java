@@ -1,6 +1,7 @@
 package com.example.mcpserver.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +23,9 @@ public class Author {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToMany(mappedBy = "authors", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToMany(mappedBy = "authors", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
+            fetch = FetchType.EAGER)
     @JsonBackReference
+
     private Set<Book> books = new HashSet<>();
 }
